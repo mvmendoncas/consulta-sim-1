@@ -14,8 +14,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_04_184709) do
   create_table "consultas", force: :cascade do |t|
     t.date "data"
     t.string "horario"
+    t.integer "medico_id", null: false
+    t.integer "paciente_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["medico_id"], name: "index_consultas_on_medico_id"
+    t.index ["paciente_id"], name: "index_consultas_on_paciente_id"
   end
 
   create_table "enderecos", force: :cascade do |t|
@@ -24,8 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_04_184709) do
     t.string "cep"
     t.string "bairro"
     t.string "cidade"
+    t.integer "paciente_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["paciente_id"], name: "index_enderecos_on_paciente_id"
   end
 
   create_table "medicos", force: :cascade do |t|
@@ -47,4 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_04_184709) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "consultas", "medicos"
+  add_foreign_key "consultas", "pacientes"
+  add_foreign_key "enderecos", "pacientes"
 end
