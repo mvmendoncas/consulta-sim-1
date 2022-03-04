@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_04_175714) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_04_184709) do
+  create_table "consultas", force: :cascade do |t|
+    t.date "data"
+    t.string "horario"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "enderecos", force: :cascade do |t|
+    t.string "logradouro"
+    t.string "complemento"
+    t.string "cep"
+    t.string "bairro"
+    t.string "cidade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "medicos", force: :cascade do |t|
     t.string "nome"
     t.string "cpf"
