@@ -9,4 +9,14 @@
     <%= consulta.horario %>
   </p>
 
+  <p>
+    <strong>Medico:</strong>
+    <%= Medico.find(consulta.medico_id).nome %>
+  </p>
+
+  <p>
+    <strong>Paciente:</strong>
+    <%= Paciente.find(consulta.paciente_id).nome %>
+  </p>
+
 </div>

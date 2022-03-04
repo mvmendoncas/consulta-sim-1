@@ -13,6 +13,7 @@ class PacientesController < ApplicationController
   # GET /pacientes/new
   def new
     @paciente = Paciente.new
+    @paciente.build_endereco
   end
 
   # GET /pacientes/1/edit
