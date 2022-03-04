@@ -1,5 +1,8 @@
 class Consulta < ApplicationRecord
 
+  belongs_to :medico
+  belongs_to :paciente
+
   validate :data_consulta_futuro
   validate :horarios_validos
 
