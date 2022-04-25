@@ -68,7 +68,7 @@ group :development do
   # gem "spring"
 end
 
-group :test do
+def testing_gems
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
@@ -79,7 +79,15 @@ group :test do
   gem 'database_cleaner'
 end
 
-group :production do
+group :test do
+  testing_gems
+end
+
+group :production, :actions do
   gem 'pg'
   gem 'activerecord-postgresql-adapter'
+end
+
+group :actions do
+  testing_gems
 end
