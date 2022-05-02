@@ -56,4 +56,3 @@ jobs:
          run: |
            bundle exec rails db:prepare
            bundle exec rails test -e actions test/models/medico_test.rb
-           bundle exec cucumber
