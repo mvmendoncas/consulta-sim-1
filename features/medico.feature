@@ -3,15 +3,14 @@ Feature: Medico
   I want to adicionar, remover, visualizar e editar meu cadastro
   So that eu nao tenha que fazer isso de forma manual ou presencial
 
+    Scenario: Adicionar cadastro
+        Given que eu estou na pagina de cadastro
+        When eu preencho os campos com os dados corretos
+        And eu clico em "Adicionar"
+        Then eu vejo uma mensagem de sucesso
+        And eu vejo meu cadastro na lista de medicos
 
-  Scenario: remover medico
-    Given estou na pagina de medico
-    And o medico com CRM '11223' existe
-    When eu clico em remover o medico com CRM '11223'
-    Then eu vejo uma mensagem que o medico foi apagado com sucesso
-
-  Scenario: cadastrar medico
-    Given estou na pagina de medico
-    When eu preencho os campos de nome 'Emily Souza', cpf '014.945.910-65', email 'emily@gmail.com', especialidade 'Pediatra' e crm '12333'
-    And eu clico em cadastrar novo medico
-    Then eu vejo uma mensagem que o medico foi cadastrado com sucesso
+    Scenario: Visualizar cadastro
+        Given que eu estou na pagina de cadastro
+        When eu clico em "Visualizar"
+        Then eu vejo os dados do meu cadastro
